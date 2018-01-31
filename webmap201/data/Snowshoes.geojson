@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"name": "Snowshoes",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Stimson Creek Hills", "Difficulty": "Moderate", "Season": "Winter, Spring, Summer, Fall", "Park": "Kananaskis", "Video": "No", "Time": "4 hrs", "Distance": "7 km", "Elevation +\/-": null }, "geometry": { "type": "Point", "coordinates": [ -114.315834054598326, 50.265883854016295 ] } },
+{ "type": "Feature", "properties": { "Name": "Blacksmith Ridge", "Difficulty": "Moderate", "Season": "Winter, Spring, Summer, Fall", "Park": "Kananaskis", "Video": "No", "Time": "4 hrs", "Distance": "7 km", "Elevation +\/-": "600 m" }, "geometry": { "type": "Point", "coordinates": [ -115.20925309091929, 50.717102350112107 ] } },
+{ "type": "Feature", "properties": { "Name": "The Fist (East Ridge)", "Difficulty": "Moderate", "Season": "Winter, Spring, Summer, Fall", "Park": "Kananaskis", "Video": "No", "Time": "6 hrs", "Distance": "7 km", "Elevation +\/-": "530 m" }, "geometry": { "type": "Point", "coordinates": [ -115.329602348094156, 50.820478492713001 ] } },
+{ "type": "Feature", "properties": { "Name": "Gypsum Ridge", "Difficulty": "Moderate", "Season": "Winter, Spring, Summer, Fall", "Park": "Kananaskis", "Video": "No", "Time": "4 hrs", "Distance": "6 km", "Elevation +\/-": "420 m" }, "geometry": { "type": "Point", "coordinates": [ -115.173119745023286, 50.696685124767171 ] } },
+{ "type": "Feature", "properties": { "Name": "Mount Kidd Lookout", "Difficulty": "Moderate", "Season": "Winter, Spring, Summer, Fall", "Park": "Kananaskis", "Video": "No", "Time": "4 hrs", "Distance": "6 km", "Elevation +\/-": "565 m" }, "geometry": { "type": "Point", "coordinates": [ -115.150870161434952, 50.922362786995507 ] } },
+{ "type": "Feature", "properties": { "Name": "North Kent Outlier", "Difficulty": "Moderate", "Season": "Winter, Spring, Summer, Fall", "Park": "Kananaskis", "Video": "No", "Time": "5 hrs", "Distance": "8 km", "Elevation +\/-": "726 m" }, "geometry": { "type": "Point", "coordinates": [ -115.248261897118766, 50.747364347060532 ] } },
+{ "type": "Feature", "properties": { "Name": "Rummel Ridge", "Difficulty": "Moderate", "Season": "Winter, Spring, Summer, Fall", "Park": "Kananaskis", "Video": "No", "Time": "4 hrs", "Distance": "7 km", "Elevation +\/-": "700 m" }, "geometry": { "type": "Point", "coordinates": [ -115.344612960426034, 50.850828881053822 ] } }
+]
+}
