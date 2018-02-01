@@ -14,7 +14,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
        
         <style>
-            #mapdiv{ width: 900px; height: 500px; }
+            #mapdiv{ width: 1422px; height: 602px; }
         </style>
         
     </head>
@@ -60,8 +60,21 @@
                     "opacity": 0.25
                 }).addTo(mymap);
                 
-                
-                lyrHikes = L.geoJson.ajax("data/Hikes_2.geojson").addTo(mymap);
+		$.getJSON("data/Hike_2.geojson",function(data){
+		    // add GeoJSON layer to the map once the file is loaded
+		    L.geoJson(data,{
+				    onEachFeature: function (feature, layer) {
+                        if (feature.properties && feature.properties.Name) {
+                            var popupContent = '<table>';
+                            for (var p in feature.properties) {
+                                popupContent += '<tr><td>' + p + ':</td><td><b>' + feature.properties[p] + '</b></td></tr>';
+                            }
+                            popupContent += '</table>';
+                            layer.bindPopup(popupContent);
+                        }
+    }
+			}).addTo(mymap);
+		});
                     
                 objOverlays = {
                     "All Trails": lyrTrails
