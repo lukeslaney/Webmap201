@@ -42,14 +42,12 @@
                 lyrOSM = L.tileLayer.provider('OpenStreetMap.Mapnik');
                 lyrTopo = L.tileLayer.provider('OpenTopoMap');
                 lyrImagery = L.tileLayer.provider('Esri.WorldImagery');
-                lyrOutdoors = L.tileLayer.provider('Thunderforest.Outdoors');
                 mymap.addLayer(lyrOSM);
                 
                 objBasemaps = {
                     "Open Street Maps": lyrOSM,
                     "Topo Map": lyrTopo,
-                    "Imagery": lyrImagery,
-                    "Outdoors": lyrOutdoors
+                    "Imagery": lyrImagery
                 };
                 
                 fgpDrawnItems = new L.FeatureGroup();
@@ -59,11 +57,11 @@
                 lyrTrails = L.geoJson.ajax('data/Trails.geojson', {
                     "color": "#DE0D0D",
                     "weight": 3,
-                    "opacity": 0.65
+                    "opacity": 0.25
                 }).addTo(mymap);
                 
                 
-                lyrHikes = L.geoJson.ajax("data/Hikes.geojson").addTo(mymap);
+                lyrHikes = L.geoJson.ajax("data/Hikes_2.geojson").addTo(mymap);
                     
                 objOverlays = {
                     "All Trails": lyrTrails
