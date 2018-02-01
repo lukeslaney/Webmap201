@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet Map</title>
+	<!-- External Stylesheets -->
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+</head>
+<body>
+	<!-- Our web map and content will go here -->
+	<div id="map" style="width: 1360px; height: 510px"></div>
+	<!-- Add the Leaflet JavaScript library -->
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="src/plugins/leaflet.ajax.min.js"></script>
+    
+	<script>
+    	// Create variable to hold map element, give initial settings to map
+        var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>',
+            thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>',
+            OpenTopoMap = '<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+        
+        var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            osmAttrib = '&copy; ' + osmLink + ' Contributors',
+            landUrl = 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
+            thunAttrib = '&copy; '+osmLink+' Contributors & '+thunLink,
+            OpenTopoMapURL = 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
+            OpenTopoMapAttrib = '&copy; ' + OpenTopoMap + ' Contributors';
+
+        var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib}),
+            landMap = L.tileLayer(landUrl, {attribution: thunAttrib}),
+            otmMap = L.tileLayer(OpenTopoMapURL, {attribution: OpenTopoMapAttrib});
+
+        var map = L.map('map', {
+			    layers: [osmMap] // only add one!
+		    })
+		    .setView([50.95259, -115.14257], 8);
+
+		var baseLayers = {
+			"OSM Mapnik": osmMap,
+			"Landscape": landMap,
+            "Topographic": otmMap
+            
+		};
+
+		L.control.layers(baseLayers).addTo(map);
+         
+        // Write function to set Properties of the Popup
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent("You clicked the map at " + e.latlng.toString())
+                .openOn(map);
+        }
+         
+        // Listen for a click event on the Map element
+        map.on('click', onMapClick);
+
+        // load GeoJSON from an external file
+		$.getJSON("data/Hike_2.geojson",function(data){
+		    // add GeoJSON layer to the map once the file is loaded
+		    L.geoJson(data,{
+				    onEachFeature: function (feature, layer) {
+                        if (feature.properties && feature.properties.Name) {
+                            var popupContent = '<table>';
+                            for (var p in feature.properties) {
+                                popupContent += '<tr><td>' + p + ':</td><td><b>' + feature.properties[p] + '</b></td></tr>';
+                            }
+                            popupContent += '</table>';
+                            layer.bindPopup(popupContent);
+                        }
+    }
+			}).addTo(map);
+		});
+        
+        		$.getJSON("data/Snowshoes.geojson",function(data){
+		    // add GeoJSON layer to the map once the file is loaded
+		    L.geoJson(data,{
+				    onEachFeature: function (feature, layer) {
+                        if (feature.properties && feature.properties.Name) {
+                            var popupContent = '<table>';
+                            for (var p in feature.properties) {
+                                popupContent += '<tr><td>' + p + ':</td><td><b>' + feature.properties[p] + '</b></td></tr>';
+                            }
+                            popupContent += '</table>';
+                            layer.bindPopup(popupContent);
+                        }
+    }
+			}).addTo(map);
+		});
+
+        
+        var ctrScale = L.control.scale({position:'bottomleft'}).addTo(map);
+        
+	</script>
+</body>
+</html>
