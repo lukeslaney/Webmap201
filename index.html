@@ -42,17 +42,12 @@
                 mymap = L.map('mapdiv', {center:[50.95259, -115.14257], zoom:8});
                 lyrOSM = L.tileLayer.provider('OpenStreetMap.Mapnik');
                 lyrTopo = L.tileLayer.provider('OpenTopoMap');
-		lyrHikeBike = L.tileLayer.provider('HikeBike.HikeBike');
-		lyrDark = L.tileLayer.provider('CartoDB.DarkMattere');
                 lyrImagery = L.tileLayer.provider('Esri.WorldImagery');
                 mymap.addLayer(lyrOSM);
                 
                 objBasemaps = {
                     "Open Street Maps": lyrOSM,
                     "Topo Map": lyrTopo,
-		    "Hiking Map": lyrHikeBike,
-		    "Delorme Map": lyrDelorme,
-		    "Dark Map": lyrDark,
                     "Satellite": lyrImagery
                 };
                 
