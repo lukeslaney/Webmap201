@@ -26,7 +26,6 @@
             var lyrOSM;
             var lyrTopo;
             var lyrHikeBike;
-            var lyrDelorme;
             var lyrDark;
             var lyrImagery;
             var ctrLayers;
@@ -44,7 +43,6 @@
                 lyrOSM = L.tileLayer.provider('OpenStreetMap.Mapnik');
                 lyrTopo = L.tileLayer.provider('OpenTopoMap');
 		lyrHikeBike = L.tileLayer.provider('HikeBike.HikeBike');
-		lyrDelorme = L.tileLayer.provider('Esri.DeLorme');
 		lyrDark = L.tileLayer.provider('CartoDB.DarkMattere');
                 lyrImagery = L.tileLayer.provider('Esri.WorldImagery');
                 mymap.addLayer(lyrOSM);
