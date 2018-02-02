@@ -39,16 +39,18 @@
             var popHikes;
             
             $(document).ready(function(){
-                mymap = L.map('mapdiv', {center:[50.95259, -115.14257], zoom:8});
+                mymap = L.map('mapdiv', {center:[50.95259, -115.14257], zoom:10});
                 lyrOSM = L.tileLayer.provider('OpenStreetMap.Mapnik');
                 lyrTopo = L.tileLayer.provider('OpenTopoMap');
                 lyrImagery = L.tileLayer.provider('Esri.WorldImagery');
+                lyrOutdoors = L.tileLayer.provider('Thunderforest.Outdoors');
                 mymap.addLayer(lyrOSM);
                 
                 objBasemaps = {
                     "Open Street Maps": lyrOSM,
                     "Topo Map": lyrTopo,
-                    "Satellite": lyrImagery
+                    "Imagery": lyrImagery,
+                    "Outdoors": lyrOutdoors
                 };
                 
                 fgpDrawnItems = new L.FeatureGroup();
