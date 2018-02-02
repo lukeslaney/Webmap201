@@ -14,7 +14,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
        
         <style>
-            #mapdiv{ width: 1605px; height: 602px; }
+            #mapdiv{ width: 900px; height: 600px; }
         </style>
         
     </head>
@@ -26,8 +26,8 @@
             var lyrOSM;
             var lyrTopo;
             var lyrHikeBike;
-            var lyrDelorme
-            var lyrDark
+            var lyrDelorme;
+            var lyrDark;
             var lyrImagery;
             var ctrLayers;
             var objBasemaps;
@@ -43,12 +43,18 @@
                 mymap = L.map('mapdiv', {center:[50.95259, -115.14257], zoom:8});
                 lyrOSM = L.tileLayer.provider('OpenStreetMap.Mapnik');
                 lyrTopo = L.tileLayer.provider('OpenTopoMap');
+		lyrHikeBike = L.tileLayer.provider('HikeBike.HikeBike');
+		lyrDelorme = L.tileLayer.provider('Esri.DeLorme');
+		lyrDark = L.tileLayer.provider('CartoDB.DarkMattere');
                 lyrImagery = L.tileLayer.provider('Esri.WorldImagery')
                 mymap.addLayer(lyrOSM);
                 
                 objBasemaps = {
                     "Open Street Maps": lyrOSM,
                     "Topo Map": lyrTopo,
+		    "Hiking Map": lyrHikeBike,
+		    "Delorme Map": lyrDelorme,
+		    "Dark Map": lyrDark,
                     "Satellite": lyrImagery
                 };
                 
