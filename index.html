@@ -43,14 +43,16 @@
                 lyrOSM = L.tileLayer.provider('OpenStreetMap.Mapnik');
                 lyrTopo = L.tileLayer.provider('OpenTopoMap');
                 lyrImagery = L.tileLayer.provider('Esri.WorldImagery');
-                lyrOutdoors = L.tileLayer.provider('Thunderforest.Outdoors');
+                lyrHikeBike = L.tileLayer.provider('HikeBike.HikeBike');
+		lyrDark = L.tileLayer.provider('CartoDB.DarkMatter');
                 mymap.addLayer(lyrOSM);
                 
                 objBasemaps = {
                     "Open Street Maps": lyrOSM,
                     "Topo Map": lyrTopo,
                     "Imagery": lyrImagery,
-                    "Outdoors": lyrOutdoors
+                    "Hike Map": lyrHikeBike,
+		    "Dark Map": lyrDark
                 };
                 
                 fgpDrawnItems = new L.FeatureGroup();
