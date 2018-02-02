@@ -41,13 +41,31 @@
             
             $(document).ready(function(){
                 mymap = L.map('mapdiv', {center:[50.95259, -115.14257], zoom:8});
-                lyrOSM = L.tileLayer.provider('OpenStreetMap.Mapnik');
-                lyrTopo = L.tileLayer.provider('OpenTopoMap');
-                lyrImagery = L.tileLayer.provider('Esri.WorldImagery');
-		lyrHikeBike = L.tileLayer.provider('HikeBike.HikeBike');
-		lyrDelorme = L.tileLayer.provider('Esri.DeLorme');
-		lyrDark = L.tileLayer.provider('CartoDB.DarkMatter');
-                mymap.addLayer(lyrOSM);
+                lyrOSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	               maxZoom: 19,
+	               attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    });
+                lyrTopo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+	               maxZoom: 17,
+	               attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+                    });
+                lyrHikeBike = L.tileLayer('http://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png', {
+	               maxZoom: 19,
+	               attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    });
+                lyrDelorme = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Specialty/DeLorme_World_Base_Map/MapServer/tile/{z}/{y}/{x}', {
+                    attribution: 'Tiles &copy; Esri &mdash; Copyright: &copy;2012 DeLorme',
+                    minZoom: 1,
+                    maxZoom: 11
+                    });
+                lyrDark = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+                    subdomains: 'abcd',
+                    maxZoom: 19
+                    });
+                lyrImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                    });
                 
                 objBasemaps = {
                     "Open Street Maps": lyrOSM,
